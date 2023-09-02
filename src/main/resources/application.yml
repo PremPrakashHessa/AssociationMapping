@@ -1,4 +1,3 @@
-{
   spring:
     datasource:
       url: jdbc:mysql://localhost:3306/AssociationMapping
@@ -20,5 +19,3 @@
     server:
       port: 8080
 
-
-}
