@@ -8,6 +8,7 @@ import org.hibernate.type.descriptor.java.LongJavaType;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 
 @Entity
@@ -22,13 +23,8 @@ public class Item {
 
     @ElementCollection
     @CollectionTable(name = "ImagePath")
-    @GenericGenerator(name = "image_gen" , strategy = "sequence")
+    @OrderColumn
     @Column(name = "Path")
-    @CollectionId(
-            column = @Column(name = "Image_id"),
-            generator = "image_gen"
-    )
-    @CollectionIdJavaType(LongJavaType.class)
-    private Collection<String> imagePaths = new ArrayList<>();
+    private List<String> imagePaths = new ArrayList<>();
 
 }
