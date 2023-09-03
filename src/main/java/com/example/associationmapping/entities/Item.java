@@ -2,9 +2,13 @@ package com.example.associationmapping.entities;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import org.hibernate.annotations.*;
+import org.hibernate.type.descriptor.java.BasicJavaType;
+import org.hibernate.type.descriptor.java.LongJavaType;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.Collection;
+
 
 @Entity
 @Data
@@ -17,11 +21,14 @@ public class Item {
     private String name;
 
     @ElementCollection
-    @CollectionTable(
-            name = "ImagePath",
-            joinColumns = @JoinColumn(name = "Item_id")
-    )
+    @CollectionTable(name = "ImagePath")
+    @GenericGenerator(name = "image_gen" , strategy = "sequence")
     @Column(name = "Path")
-    private Set<String> imagePaths = new HashSet<>();
+    @CollectionId(
+            column = @Column(name = "Image_id"),
+            generator = "image_gen"
+    )
+    @CollectionIdJavaType(LongJavaType.class)
+    private Collection<String> imagePaths = new ArrayList<>();
 
 }
