@@ -8,7 +8,7 @@
     jpa:
       show-sql: true
       hibernate:
-        ddl-auto: create-drop
+        ddl-auto: update
         auto_quote_keyword: true
 
       defer-datasource-initialization: true
