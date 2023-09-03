@@ -31,8 +31,6 @@ public class SetMappingTest {
         paths.add("apple.jpg");
         paths.add("Apple.jpg");
         paths.add("RedGreenPie.jpg");
-        // on adding duplicate element , doesn't throw any exception , does not persist the item .
-        paths.add("apple.jpg");
         item.setImagePaths(paths);
 
         repo.save(item);
