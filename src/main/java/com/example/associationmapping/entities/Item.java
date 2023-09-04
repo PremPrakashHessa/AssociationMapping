@@ -1,10 +1,10 @@
 package com.example.associationmapping.entities;
 
+import com.example.associationmapping.comparators.ReverseStringComparator;
 import jakarta.persistence.*;
 import lombok.Data;
-import org.hibernate.annotations.*;
-import org.hibernate.type.descriptor.java.BasicJavaType;
-import org.hibernate.type.descriptor.java.LongJavaType;
+import org.hibernate.annotations.SortComparator;
+
 
 import java.util.*;
 
@@ -19,10 +19,11 @@ public class Item {
 
     private String name;
 
-    @ElementCollection
+    @ElementCollection(fetch = FetchType.EAGER)
     @CollectionTable(name = "ImagePath")
-    @MapKeyColumn(name = "imageKey")
     @Column(name = "Path")
-    private Map<String,String> imagePaths = new HashMap<>();
+    @MapKeyColumn(name ="Item_key")
+    @SortComparator(ReverseStringComparator.class)
+    private SortedMap<String,String> imagePaths = new TreeMap<>();
 
 }

@@ -5,7 +5,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
-import java.util.List;
+import java.util.Optional;
 import java.util.Set;
 
 public interface ItemRepository extends JpaRepository<Item, Long> {
@@ -15,4 +15,9 @@ public interface ItemRepository extends JpaRepository<Item, Long> {
 
     @Query(value = "SELECT PATH FROM IMAGEPATH WHERE ITEM_ID = ?1" , nativeQuery = true)
     Set<String> getImagePathsOfItem(Long id);
+
+    @Query("select i from Item i where i.name = :name")
+   Optional<Item> findByName( @Param("name") String name);
+
+
 }
