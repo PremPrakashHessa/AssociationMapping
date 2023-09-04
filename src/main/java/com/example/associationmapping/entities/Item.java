@@ -2,7 +2,7 @@ package com.example.associationmapping.entities;
 
 import com.example.associationmapping.comparators.ReverseStringComparator;
 import jakarta.persistence.*;
-import lombok.Data;
+import lombok.Data;i
 import org.hibernate.annotations.SortComparator;
 
 
