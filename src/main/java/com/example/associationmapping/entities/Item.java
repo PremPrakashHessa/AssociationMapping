@@ -6,9 +6,7 @@ import org.hibernate.annotations.*;
 import org.hibernate.type.descriptor.java.BasicJavaType;
 import org.hibernate.type.descriptor.java.LongJavaType;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
+import java.util.*;
 
 
 @Entity
@@ -23,8 +21,8 @@ public class Item {
 
     @ElementCollection
     @CollectionTable(name = "ImagePath")
-    @OrderColumn
+    @MapKeyColumn(name = "imageKey")
     @Column(name = "Path")
-    private List<String> imagePaths = new ArrayList<>();
+    private Map<String,String> imagePaths = new HashMap<>();
 
 }
