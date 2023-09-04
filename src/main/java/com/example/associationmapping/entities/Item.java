@@ -2,6 +2,7 @@ package com.example.associationmapping.entities;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import org.hibernate.annotations.OrderBy;
 import org.hibernate.annotations.SortNatural;
 
 import java.util.*;
@@ -20,7 +21,7 @@ public class Item {
     @ElementCollection
     @CollectionTable(name = "ImagePath")
     @Column(name = "Path")
-    @SortNatural
-    private Set<String> imagePaths = new TreeSet<>();
+    @OrderBy(clause = "Path DESC")
+    private Set<String> imagePaths = new LinkedHashSet<>();
 
 }
