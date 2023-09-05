@@ -10,8 +10,7 @@ import java.util.Set;
 
 public interface ItemRepository extends JpaRepository<Item, Long> {
 
-    @Query("select i from Item i inner join fetch i.imagePaths where i.id = :id")
-    Item findWithImages(@Param("id") Long id);
+
 
     @Query(value = "SELECT PATH FROM IMAGEPATH WHERE ITEM_ID = ?1" , nativeQuery = true)
     Set<String> getImagePathsOfItem(Long id);

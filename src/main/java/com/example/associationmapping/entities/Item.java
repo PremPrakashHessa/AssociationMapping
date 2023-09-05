@@ -19,9 +19,9 @@ public class Item {
     private String name;
 
     @ElementCollection
-    @CollectionTable(name = "ImagePath")
-    @Column(name = "Path")
-    @OrderBy(clause = "Path DESC")
-    private Set<String> imagePaths = new LinkedHashSet<>();
+    @CollectionTable(name = "Images")
+    @MapKeyColumn(name = "TIt")
+    private Map<String,Image> images = new HashMap<>();
+
 
 }
