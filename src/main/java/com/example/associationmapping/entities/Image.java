@@ -10,8 +10,7 @@ import org.hibernate.annotations.Parent;
 @NoArgsConstructor
 public class Image {
 
-    public Image(String title,String fileName,int height,int width){
-        this.title = title;
+    public Image(String fileName,int height,int width){
         this.fileName = fileName;
         this.height = height;
          this.width = width;
@@ -21,8 +20,6 @@ public class Image {
     /*@Parent
     public Item item;*/
 
-    @Column(nullable = false)
-    private String title;
     @Column(nullable = false)
     private String fileName;
     private int height;

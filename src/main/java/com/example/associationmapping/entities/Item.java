@@ -20,8 +20,8 @@ public class Item {
 
     @ElementCollection
     @CollectionTable(name = "Images")
-    @MapKeyColumn(name = "TIt")
-    private Map<String,Image> images = new HashMap<>();
+    @MapKeyClass(ImageTitle.class)
+    private Map<ImageTitle,Image> images = new HashMap<>();
 
 
 }

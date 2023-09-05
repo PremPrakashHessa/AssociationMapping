@@ -1,6 +1,7 @@
 package com.example.associationmapping.resources;
 
 import com.example.associationmapping.entities.Image;
+import com.example.associationmapping.entities.ImageTitle;
 import com.example.associationmapping.entities.Item;
 import com.example.associationmapping.repositories.ItemRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,11 +21,11 @@ public class DemoController {
         Item item= new Item();
         Item item2 = new Item();
         item.setName("A");
-        Map<String , Image> s = new HashMap<>();
-        s.put("App",new Image("App","Apple",5,6));
-        s.put("Ban",new Image("Ban","Banana",5,6));
-        s.put("Pap",new Image("Pap","Papaya",5,6));
-        s.put("Parr",new Image("Parr","Parrot",5,6));
+        Map<ImageTitle, Image> s = new HashMap<>();
+        s.put(new ImageTitle("App"),new Image("Apple",5,6));
+        s.put(new ImageTitle("Ban"),new Image("Banana",5,6));
+        s.put(new ImageTitle("Pap"),new Image("Papaya",5,6));
+        s.put(new ImageTitle("Parr"),new Image("Parrot",5,6));
         item.setImages(s);
         itemRepository.save(item);
 
